@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: v1-create-tasks-table
+      author: Vadim Savchuk
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: tasks
+      changes:
+        - createTable:
+            tableName: tasks
+            columns:
+              - column:
+                  name: task_id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: title
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(300)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: priority
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: author_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: executor_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: comment
+                  type: varchar(255)
+              - column:
+                  name: taskCreateDate
+                  type: timestamp
