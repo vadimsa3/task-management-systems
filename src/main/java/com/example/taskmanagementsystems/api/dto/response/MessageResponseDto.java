@@ -1,4 +1,7 @@
 package com.example.taskmanagementsystems.api.dto.response;
 
-public class MessageResponseDto {
+public record MessageResponseDto(
+    String message
+) {
+
 }

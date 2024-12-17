@@ -1,4 +1,4 @@
-package com.example.taskmanagementsystems.impl.service.impl;
+package com.example.taskmanagementsystems.impl.security.jwt;
 
 import com.example.taskmanagementsystems.db.entity.RefreshTokenEntity;
 import com.example.taskmanagementsystems.db.entity.UserEntity;
@@ -6,7 +6,6 @@ import com.example.taskmanagementsystems.db.repository.RefreshTokenRepository;
 import com.example.taskmanagementsystems.impl.exception.AppException;
 import com.example.taskmanagementsystems.impl.exception.EnumException;
 import java.time.LocalDateTime;
-import java.util.Optional;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

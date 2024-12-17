@@ -1,10 +1,11 @@
-FROM gradle:7.4-jdk17 AS builder
+FROM gradle:8.2.1-jdk17 AS build
 WORKDIR /app
-COPY . /app/.
-RUN gradle --no-daemon build --exclude-task test
+COPY build.gradle settings.gradle ./
+COPY src ./src
+RUN gradle build -x test --no-daemon
 
-FROM eclipse-temurin:17-jre-jammy
+FROM openjdk:17-jdk-slim
 WORKDIR /app
-COPY --from=builder /app/build/libs/*.jar /app/
+COPY --from=build /app/build/libs/*.jar app.jar
 EXPOSE 9898
-ENTRYPOINT ["java", "-jar", "/app/user-service-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]

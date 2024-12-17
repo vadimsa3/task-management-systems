@@ -50,5 +50,5 @@ databaseChangeLog:
                   name: comment
                   type: varchar(255)
               - column:
-                  name: taskCreateDate
+                  name: task_create_date
                   type: timestamp

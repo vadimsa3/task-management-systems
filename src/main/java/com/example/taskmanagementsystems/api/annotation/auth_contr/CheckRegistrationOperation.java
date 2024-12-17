@@ -1,4 +1,4 @@
-package com.example.taskmanagementsystems.api.annotation;
+package com.example.taskmanagementsystems.api.annotation.auth_contr;
 
 import com.example.taskmanagementsystems.api.dto.response.CheckRegistrationResponseDto;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -25,7 +25,7 @@ import org.springframework.web.ErrorResponse;
                 value = "{\"isRegistered\": \"true\"}"))),
 
     @ApiResponse(responseCode = "401",
-        description = "Unauthorized (попытка запроса неавторизованного пользователя "
+        description = "Unauthorized (попытка запроса от неавторизованного пользователя "
             + "- без передачи / некорректного значения JWT token в Header",
         content = @Content(mediaType = "application/json",
             schema = @Schema(implementation = ErrorResponse.class),

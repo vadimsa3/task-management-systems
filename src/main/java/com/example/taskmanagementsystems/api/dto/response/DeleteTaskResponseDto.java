@@ -1,5 +1,15 @@
-package com.example.taskmanagementsystems.api.dto.responce;
+package com.example.taskmanagementsystems.api.dto.response;
 
-public class DeleteTaskResponceDto {
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+public record DeleteTaskResponseDto(
+    UUID taskId,
+    String title
+) {
 
 }

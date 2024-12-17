@@ -10,7 +10,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface UserProfileMapper {
+public interface UserMapper {
 
   UserEntity mapToUserEntity(RegistrationUserRequestDto registrationUserRequestDto);
 

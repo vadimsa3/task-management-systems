@@ -1,4 +1,4 @@
-package ru.aston.exceptionhandler.exception;
+package com.example.taskmanagementsystems.impl.exception;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDateTime;

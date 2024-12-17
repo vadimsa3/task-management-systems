@@ -1,4 +1,14 @@
 package com.example.taskmanagementsystems.db.enums;
 
-public enum RoleEnum {
+import org.springframework.security.core.GrantedAuthority;
+
+public enum RoleEnum implements GrantedAuthority {
+  ADMIN,
+  USER;
+
+  @Override
+  public String getAuthority() {
+    return name();
+  }
+
 }
