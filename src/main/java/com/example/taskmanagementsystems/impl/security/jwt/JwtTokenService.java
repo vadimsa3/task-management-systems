@@ -1,9 +1,9 @@
-package com.example.taskmanagementsystems.impl.service.impl;
+package com.example.taskmanagementsystems.impl.security.jwt;
 
 import com.example.taskmanagementsystems.db.entity.UserEntity;
-import com.example.taskmanagementsystems.impl.security.UserDetailsImpl;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -12,10 +12,10 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
 import java.security.Key;
-import java.time.Duration;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -55,12 +55,12 @@ public class JwtTokenService {
   }
 
   public String getUserEmail(String token) {
-    return Jwts.parser()
-        .setSigningKey(getSignKey())
+    Key signingKey = getSignKey();
+    Jws<Claims> claimsJws = Jwts.parser()
+        .setSigningKey(signingKey)
         .build()
-        .parseClaimsJws(token)
-        .getBody()
-        .getSubject();
+        .parseClaimsJws(token);
+    return claimsJws.getBody().get("login").toString();
   }
 
   public Boolean validate(String token) {
@@ -81,5 +81,18 @@ public class JwtTokenService {
     return false;
   }
 
+  public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
+    final Claims claims = extractAllClaims(token);
+    return claimsResolver.apply(claims);
+  }
+
+  private Claims extractAllClaims(String token) {
+    return Jwts
+        .parser()
+        .setSigningKey(getSignKey())
+        .build()
+        .parseSignedClaims(token)
+        .getPayload();
+  }
 
 }

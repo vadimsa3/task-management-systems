@@ -1,6 +1,6 @@
 package com.example.taskmanagementsystems.db.enums;
 
-public enum StatusInfoEnum {
+public enum TaskStatusEnum {
   PENDING,
   IN_PROGRESS,
   COMPLETED

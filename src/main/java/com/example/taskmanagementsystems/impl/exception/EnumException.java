@@ -10,14 +10,16 @@ public enum EnumException implements EnumInterface {
       "ConflictException"),
 
   NOT_FOUND(HttpStatus.NOT_FOUND,
-      "The requested resource was not found.", "NotFoundException"),
+      "The requested resource was not found.",
+      "NotFoundException"),
 
   BAD_REQUEST(HttpStatus.BAD_REQUEST,
       "The request could not be understood by the server due to malformed syntax.",
       "BadRequestException"),
 
   FORBIDDEN(HttpStatus.FORBIDDEN,
-      "You do not have permission to access the requested resource.", "ForbiddenException"),
+      "You do not have permission to access the requested resource.",
+      "ForbiddenException"),
 
   NOT_ACCEPTABLE(HttpStatus.NOT_ACCEPTABLE,
       "The request cannot be processed in the requested format.",

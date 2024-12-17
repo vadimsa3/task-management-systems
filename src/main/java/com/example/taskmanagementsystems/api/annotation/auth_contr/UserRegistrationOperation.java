@@ -1,6 +1,6 @@
-package com.example.taskmanagementsystems.api.annotation;
+package com.example.taskmanagementsystems.api.annotation.auth_contr;
 
-import com.example.taskmanagementsystems.api.dto.request.RegistrationUserRequestDto;
+import com.example.taskmanagementsystems.api.dto.response.RegistrationUserResponseDto;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -10,7 +10,6 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import org.springframework.web.ErrorResponse;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
@@ -20,21 +19,11 @@ import org.springframework.web.ErrorResponse;
     @ApiResponse(responseCode = "201",
         description = "Created",
         content = @Content(mediaType = "application/json",
-            schema = @Schema(implementation = RegistrationUserRequestDto.class),
+            schema = @Schema(implementation = RegistrationUserResponseDto.class),
             examples = @ExampleObject(
                 value = "{\"user_id\": \"c906d259-e68e-4aa1-b9c9-67ca89f959dc\","
-                    + " \"user_registration_date\": \"2024-11-25 04:56:32\"}")
-        )),
+                    + " \"user_registration_date\": \"2024-11-25 04:56:32\"}"))),
 
-    @ApiResponse(responseCode = "400",
-        description = "Пользователь с таким email уже зарегистрирован",
-        content = @Content(mediaType = "application/json",
-            schema = @Schema(implementation = ErrorResponse.class),
-            examples = @ExampleObject(
-                value = "{\"uri\": \"api/user-service/registration/user\","
-                    + "\"type\": \"BadRequestException\","
-                    + "\"message\": \"User with email Test@mail.ru already registered\","
-                    + "\"timestam\": \"2024-11-25 04:58:391\"}")))
 })
 
 public @interface UserRegistrationOperation {

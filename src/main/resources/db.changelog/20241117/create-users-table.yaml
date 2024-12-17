@@ -17,20 +17,28 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
               - column:
-                  name: firstName
+                  name: first_name
                   type: varchar(255)
                   constraints:
                     nullable: false
               - column:
-                  name: lastName
+                  name: last_name
                   type: varchar(255)
                   constraints:
                     nullable: false
               - column:
                   name: email
-                  type: varchar(50)
+                  type: varchar(255)
                   constraints:
                     nullable: false
               - column:
-                  name: userRegistrationDate
+                  name: password
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role
+                  type: varchar(20)
+              - column:
+                  name: user_registration_date
                   type: timestamp

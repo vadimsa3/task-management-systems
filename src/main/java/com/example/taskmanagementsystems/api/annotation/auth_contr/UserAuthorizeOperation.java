@@ -1,6 +1,5 @@
-package com.example.taskmanagementsystems.api.annotation;
+package com.example.taskmanagementsystems.api.annotation.auth_contr;
 
-import com.example.taskmanagementsystems.api.dto.request.RegistrationUserRequestDto;
 import com.example.taskmanagementsystems.api.dto.response.MessageResponseDto;
 import io.swagger.v3.oas.annotations.headers.Header;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -42,6 +41,7 @@ import org.springframework.web.ErrorResponse;
                     + "\"message\": \"User with email Tst@mail.ru not found\","
                     + "\"timestam\": \"2024-11-25 05:22:130\"}")))
 })
+
 public @interface UserAuthorizeOperation {
 
 }

@@ -1,6 +1,4 @@
-package com.example.taskmanagementsystems.impl.exception.handler;
-
-//import jakarta.persistence.EntityNotFoundException;
+package com.example.taskmanagementsystems.impl.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolation;
@@ -18,9 +16,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingRequestHeaderException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import ru.aston.exceptionhandler.exception.AppException;
-import ru.aston.exceptionhandler.exception.ErrorListMessage;
-import ru.aston.exceptionhandler.exception.ErrorMessage;
 
 @Slf4j
 @RestControllerAdvice
